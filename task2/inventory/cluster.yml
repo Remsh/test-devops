@@ -1,0 +1,18 @@
+---
+- hosts: server
+  gather_facts: False
+  environment:
+    DB_URL: http://localhost:8091
+    DB_USERNAME: user
+    DB_PASSWORD: password
+    WEB_PORT: 3000
+   vars:
+     - devops_user: 'devops'
+     - devops_group: 'devops'
+     - devops_password: 'abcdd@@@dfd'
+  roles:
+    - { role: adduser }
+    - { role: ssh-config }
+    - { role: docker-setup}
+    - { role: api-deployment }
+    - { role: web-server }

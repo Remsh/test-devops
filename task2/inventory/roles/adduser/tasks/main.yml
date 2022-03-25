@@ -1,0 +1,13 @@
+---
+- name: User | Create User Group
+  group:
+    name: "{{ devops_group }}"
+    state: present
+
+- name: User | Create User
+  user:
+    comment: "{{ devops_user }}"
+    state: present
+    group: "{{ devops_group }}"
+    shell: /bin/bash
+    name: "{{ devops_user }}"

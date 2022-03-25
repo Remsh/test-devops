@@ -1,0 +1,13 @@
+---
+- name: Createreate API Service
+  docker_container:
+    name: api-service
+    image: registry.wcl.com/wcl/api:latest
+    state: present
+    ports:
+      - "8091:8091"
+    env:
+        DB_URL: http://localhost:8091
+        DB_USERNAME: user
+        DB_PASSWORD: password
+    
